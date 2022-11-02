@@ -11,7 +11,7 @@ import levit_c
 import torchvision
 import utils
 torch.autograd.set_grad_enabled(False)
-
+import model_vit
 
 T0 = 10
 T1 = 60
