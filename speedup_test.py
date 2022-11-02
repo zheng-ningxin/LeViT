@@ -87,6 +87,7 @@ for device in ['cuda:0', 'cpu']:
         ('timm.models.efficientnet_b2', 512, 260),
         ('timm.models.efficientnet_b3', 512, 300),
         ('timm.models.efficientnet_b4', 256, 380),
+        ('model_vit.ExtremelyFastViT_M5', 256, 380),
     ]:
 
         if device == 'cpu':

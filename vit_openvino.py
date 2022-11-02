@@ -24,7 +24,7 @@ def compute_throughput_cpu(model, dummy_input):
     T0 = 10
     T1 = 60
     start = time.time()
-    batch_size = dummy_input.size(0)
+    batch_size = 16
     while time.time() - start < T0:
         re = model.infer(dummy_input)
 
