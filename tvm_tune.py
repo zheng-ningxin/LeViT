@@ -10,7 +10,11 @@ import tvm
 import tvm.relay as relay
 from tvm import auto_scheduler
 from tvm.contrib import graph_executor
-model = "net5"
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', type=str)
+args = parser.parse_args()
+model = args.model
 serial_onnx_model = onnx.load(f"{model}.onnx")
 # fusion_onnx_model = onnx.load("fusion_thor_model.onnx")
 
@@ -18,7 +22,7 @@ serial_mod, serial_params = relay.frontend.from_onnx(serial_onnx_model)
 # fusion_mod, fusion_params = relay.frontend.from_onnx(fusion_onnx_model)
 target = tvm.target.Target("cuda")
 dtype = "float32"
-log_file = "serial_{model}_tune.log"
+log_file = f"serial_{model}_tune.log"
 
 serial_tasks, serial_task_weights = auto_scheduler.extract_tasks(serial_mod["main"], serial_params, target)
 
