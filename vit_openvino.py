@@ -2,6 +2,7 @@ from model_vit import ExtremelyFastViT_M5
 from openvino.inference_engine import IECore
 import time
 import numpy as np
+import torch
  
 def measure_time(model, dummy_input, runtimes=200):
     times = []
