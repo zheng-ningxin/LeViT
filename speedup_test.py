@@ -74,6 +74,8 @@ for device in ['cuda:0', 'cpu']:
         compute_throughput = compute_throughput_cuda
 
     for n, batch_size0, resolution in [
+        ('timm.models.mobilenetv3_small_100', 2048, 224),
+        ('timm.models.mobilenetv3_large_100', 2048, 224),
         ('timm.models.resnet50', 1024, 224),
         ('timm.models.deit_tiny_distilled_patch16_224', 2048, 224),
         ('timm.models.deit_small_distilled_patch16_224', 2048, 224),
@@ -88,6 +90,11 @@ for device in ['cuda:0', 'cpu']:
         ('timm.models.efficientnet_b3', 512, 300),
         ('timm.models.efficientnet_b4', 256, 380),
         ('model_vit.ExtremelyFastViT_M5', 256, 380),
+        ('model_vit.ExtremelyFastViT_M4', 256, 380),
+        ('model_vit.ExtremelyFastViT_M3', 256, 380),
+        ('model_vit.ExtremelyFastViT_M2', 256, 380),
+        ('model_vit.ExtremelyFastViT_M1', 256, 380),
+        ('model_vit.ExtremelyFastViT_M0', 256, 380),
     ]:
 
         if device == 'cpu':

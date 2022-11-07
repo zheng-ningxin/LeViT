@@ -38,6 +38,7 @@ def compute_throughput_cpu(model, dummy_input):
           'images/s @ batch size', batch_size)
 
 ie = IECore()
+ie.set_config({'CPU_THREADS_NUM':'1'}, 'CPU')
 net = ie.read_network('vit_bs16.onnx')
 exec_net_onnx = ie.load_network(network=net, device_name="CPU")
 
